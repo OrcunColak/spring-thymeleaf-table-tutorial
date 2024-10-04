@@ -1,4 +1,4 @@
-package com.colak.springtutorial.controller;
+package com.colak.springtutorial.controller.product;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
