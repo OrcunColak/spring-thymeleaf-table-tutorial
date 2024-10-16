@@ -10,7 +10,7 @@ public class HelloController {
     // http://localhost:8080/hello
     @GetMapping("/hello")
     public String hello(Model model) {
-        model.addAttribute("hello_message", "Hello, Thymeleaf!");
+        model.addAttribute("hello_message", "Thymeleaf!");
         return "hello";
     }
 }

@@ -4,6 +4,6 @@
     <title>Hello Page</title>
 </head>
 <body>
-<h1 th:text="${hello_message}">Placeholder Text</h1>
+<h1 th:text="'Hello, ' + ${hello_message} + '!'">Placeholder Text</h1>
 </body>
 </html>
