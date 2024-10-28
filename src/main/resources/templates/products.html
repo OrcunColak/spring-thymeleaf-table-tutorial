@@ -8,12 +8,15 @@
 <table>
     <thead>
     <tr>
+        <th th:text="#{msgs.headers.index}">Index</th>
         <th th:text="#{msgs.headers.name}">Name</th>
         <th th:text="#{msgs.headers.price}">Price</th>
     </tr>
     </thead>
     <tbody>
-    <tr th:each="prod: ${allProducts}">
+    <!--  Iterating over Collections-->
+    <tr th:each="prod, iterStat :${allProducts}">
+        <td th:text="${iterStat.index}"></td>
         <td th:text="${prod.name}">Oranges</td>
         <td th:text="${#numbers.formatDecimal(prod.price, 1, 2)}">0.99</td>
     </tr>
