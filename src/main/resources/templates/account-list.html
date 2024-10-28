@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Account List</title>
+</head>
+<body>
+<h1>Account List</h1>
+<ul>
+    <li th:each="account : ${accounts}">
+        <span th:text="${account.name}">Name</span> -
+
+        <!-- Display primary status message using th:switch and th:case -->
+        <span th:switch="${account.status}">
+                <span th:case="'ACTIVE'">Account is active</span>
+                <span th:case="'INACTIVE'">Account is inactive</span>
+                <span th:case="'SUSPENDED'">Account is suspended</span>
+                <span th:case="*">Unknown status</span> <!-- Default case -->
+        </span>
+
+        <!-- Additional message if account is ACTIVE -->
+        <span th:if="${account.status == 'ACTIVE'}" style="color: green;">
+                (This account has full privileges.)
+        </span>
+
+        <!-- Additional message if account is INACTIVE -->
+        <span th:if="${account.status == 'INACTIVE'}" style="color: gray;">
+                (This account is currently inactive.)
+        </span>
+
+        <!-- Display if account is not SUSPENDED -->
+        <span th:unless="${account.status == 'SUSPENDED'}">
+                (Feel free to contact us for more information.)
+        </span>
+
+        <!-- Add a line break for clarity -->
+        <br/>
+    </li>
+</ul>
+</body>
+</html>
